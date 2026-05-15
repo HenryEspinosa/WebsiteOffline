@@ -1,5 +1,5 @@
 <code_interpreter type="code" lang="python">
-html = r"""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -225,6 +225,7 @@ html = r"""<!DOCTYPE html>
     <p class="hours-note">
       <i class="fas fa-clock" style="color:#1a2b4a;"></i>
       Business Hours: Monday – Friday, 8:00 AM – 5:00 PM
+      ::CLOUDFLARE_ERROR_500S_BOX::
     </p>
 
   </main>
@@ -261,7 +262,7 @@ html = r"""<!DOCTYPE html>
        Required by Cloudflare's custom 5XX error page validator.
        Kept in DOM but invisible to users via .cf-hidden CSS. -->
   <div class="cf-hidden" aria-hidden="true" role="presentation">
-    ::CLOUDFLARE_ERROR_500S_BOX::
+    <p>---</p>
   </div>
 </body>
 </html>
