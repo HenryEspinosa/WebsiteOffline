@@ -1,28 +1,23 @@
-
-	<!DOCTYPE html>
+<code_interpreter type="code" lang="python">
+html = r"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Site Maintenance – Miami Parking Authority</title>
-
   <!-- Google Font (matches MPA site feel) -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
   <style>
     /* ── Reset ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       font-family: 'Open Sans', Helvetica, Arial, sans-serif;
       background-color: #f4f4f4;
       color: #333333;
     }
-
     /* ── Header bar – matches commerce.miamiparking.com navy header ── */
     header {
       background-color: #1a2b4a;   /* MPA dark navy */
@@ -31,19 +26,16 @@
       align-items: center;
       justify-content: center;
     }
-
     header img {
       height: 52px;
       width: auto;
     }
-
     /* ── Red accent bar (matches MPA site top stripe) ── */
     .accent-bar {
       background-color: #cc0000;   /* MPA red */
       height: 5px;
       width: 100%;
     }
-
     /* ── Main container ── */
     main {
       max-width: 680px;
@@ -54,28 +46,24 @@
       padding: 48px 40px 40px;
       text-align: center;
     }
-
     /* ── Wrench / tools icon ── */
     .icon-wrap {
       font-size: 64px;
       color: #cc0000;
       margin-bottom: 24px;
     }
-
     h1 {
       font-size: 28px;
       font-weight: 700;
       color: #1a2b4a;
       margin-bottom: 12px;
     }
-
     .subtitle {
       font-size: 17px;
       color: #555555;
       margin-bottom: 28px;
       line-height: 1.6;
     }
-
     /* ── Info box ── */
     .info-box {
       background-color: #eef2f8;
@@ -85,18 +73,14 @@
       text-align: left;
       margin-bottom: 32px;
     }
-
     .info-box p {
       font-size: 15px;
       line-height: 1.7;
       margin-bottom: 10px;
       color: #333;
     }
-
     .info-box p:last-child { margin-bottom: 0; }
-
     .info-box strong { color: #1a2b4a; }
-
     /* ── Return date callout ── */
     .return-date {
       display: inline-block;
@@ -109,9 +93,7 @@
       margin-bottom: 32px;
       letter-spacing: 0.5px;
     }
-
     .return-date i { margin-right: 8px; }
-
     /* ── Email link ── */
     .email-link {
       color: #cc0000;
@@ -120,14 +102,12 @@
       word-break: break-all;
     }
     .email-link:hover { text-decoration: underline; }
-
     /* ── Divider ── */
     hr {
       border: none;
       border-top: 1px solid #dddddd;
       margin: 28px 0;
     }
-
     /* ── Business hours note ── */
     .hours-note {
       font-size: 13px;
@@ -137,7 +117,6 @@
       justify-content: center;
       gap: 6px;
     }
-
     /* ── Footer ── */
     footer {
       text-align: center;
@@ -145,13 +124,11 @@
       font-size: 12px;
       color: #888888;
     }
-
     footer a {
       color: #1a2b4a;
       text-decoration: none;
     }
     footer a:hover { text-decoration: underline; }
-
     /* ── Social icons ── */
     .social-links {
       margin-top: 14px;
@@ -159,29 +136,50 @@
       justify-content: center;
       gap: 16px;
     }
-
     .social-links a {
       color: #1a2b4a;
       font-size: 20px;
       transition: color 0.2s;
     }
     .social-links a:hover { color: #cc0000; }
-
     /* ── Responsive ── */
     @media (max-width: 600px) {
       main { margin: 24px 16px; padding: 32px 20px; }
       h1 { font-size: 22px; }
     }
+    /* ── Cloudflare 5XX diagnostic token – hidden from users ──
+       The token MUST appear literally in the HTML source for
+       Cloudflare's validator to accept the page, but we hide it
+       visually so visitors only see the MPA maintenance message. */
+    .cf-hidden {
+      position: absolute !important;
+      left: -9999px !important;
+      top: -9999px !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      clip: rect(0 0 0 0) !important;
+    }
+    /* Also hide Cloudflare's injected diagnostic markup if present */
+    .cf-error-details,
+    .cf-error-overview,
+    #cf-error-details,
+    [class*="cf-error"],
+    .cf-wrapper {
+      display: none !important;
+      visibility: hidden !important;
+    }
   </style>
 </head>
 <body>
-
   <!-- ═══════════════ HEADER ═══════════════ -->
   <header>
     <!--
       Official MPA logo hosted on miamiparking.com
-      Source [2][4]: https://www.miamiparking.com/wp-content/uploads/2023/07/MPAlogo.png
-      commerce subdomain logo [13]: https://commerce.miamiparking.com/content/files/content/logo_mpa.png
+      Primary:  https://www.miamiparking.com/wp-content/uploads/2023/07/MPAlogo.png
+      Fallback: https://commerce.miamiparking.com/content/files/content/logo_mpa.png
     -->
     <img
       src="https://www.miamiparking.com/wp-content/uploads/2023/07/MPAlogo.png"
@@ -189,31 +187,24 @@
       onerror="this.onerror=null;this.src='https://commerce.miamiparking.com/content/files/content/logo_mpa.png';"
     />
   </header>
-
   <!-- Red accent stripe -->
   <div class="accent-bar"></div>
-
   <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
   <main>
-
     <!-- Wrench icon (Font Awesome) -->
     <div class="icon-wrap">
       <i class="fas fa-tools"></i>
     </div>
-
     <h1>Our Site Is Temporarily Unavailable</h1>
-
     <p class="subtitle">
       We're performing scheduled maintenance to improve your experience.<br />
       We apologize for any inconvenience.
     </p>
-
     <!-- Return date badge -->
     <div class="return-date">
       <i class="fas fa-calendar-check"></i>
       Expected Return: Monday, May 18
     </div>
-
     <!-- Info box -->
     <div class="info-box">
       <p>
@@ -228,17 +219,14 @@
         responded to during normal business hours.
       </p>
     </div>
-
     <hr />
-
     <!-- Business hours note -->
     <p class="hours-note">
       <i class="fas fa-clock" style="color:#1a2b4a;"></i>
       Business Hours: Monday – Friday, 8:00 AM – 5:00 PM
     </p>
-	
-  </main>
 
+  </main>
   <!-- ═══════════════ FOOTER ═══════════════ -->
   <footer>
     <p>
@@ -251,8 +239,7 @@
       &nbsp;|&nbsp;
       <a href="https://www.miamiparking.com/privacy-policy/">Privacy Policy</a>
     </p>
-
-    <!-- Social media links matching MPA's profiles [2][4] -->
+    <!-- Social media links matching MPA's profiles -->
     <div class="social-links">
       <a href="https://www.facebook.com/miamiparking/" target="_blank" rel="noopener" title="Facebook">
         <i class="fab fa-facebook-square"></i>
@@ -269,14 +256,12 @@
     </div>
   </footer>
 
+  <!-- ═══════════════ CLOUDFLARE REQUIRED TOKEN (hidden) ═══════════════
+       Required by Cloudflare's custom 5XX error page validator.
+       Kept in DOM but invisible to users via .cf-hidden CSS. -->
+  <div class="cf-hidden" aria-hidden="true" role="presentation">
+    ::CLOUDFLARE_ERROR_500S_BOX::
+  </div>
 </body>
 </html>
-
-
-
-
-
-
-
-    
-
+"""
